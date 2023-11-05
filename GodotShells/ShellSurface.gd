@@ -4,9 +4,9 @@ extends MeshInstance3D
 # Length mapping ends up with cut off strands
 # Should be darker further down
 # Should use length map texture
+# Should use fur color texture
 # Physics
-# XR
-# Should use bunny model
+# XR<
 
 @export var density : int = 100
 @export var color : Color

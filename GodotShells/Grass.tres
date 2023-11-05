@@ -7,6 +7,3 @@ render_priority = 0
 shader = ExtResource("1_ek4fu")
 shader_parameter/_Density = 100
 shader_parameter/_Color = Vector3(0, 1, 0)
-shader_parameter/_Threshold = 0.2
-shader_parameter/_Width = 0.5
-shader_parameter/_Height = null

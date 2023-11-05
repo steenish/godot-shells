@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://e6f13oqdrnch"]
+
+[ext_resource type="Shader" path="res://Shells.gdshader" id="1_m53sa"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_m53sa")
+shader_parameter/_Density = 100
+shader_parameter/_Color = Vector3(0, 1, 0)
