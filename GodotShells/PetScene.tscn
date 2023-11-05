@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://q0ih77wrdaro"]
+
+[ext_resource type="Material" uid="uid://bu7paxgupspem" path="res://Grass.tres" id="1_vcfql"]
+[ext_resource type="Script" path="res://ShellSurface.gd" id="2_rrrh8"]
+[ext_resource type="Script" path="res://CameraController.gd" id="3_0n4xj"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_6qc42"]
+material = ExtResource("1_vcfql")
+
+[sub_resource type="Curve" id="Curve_wrn0e"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.695876, 0.305263), -2.18797, -2.18797, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[node name="Node3D" type="Node3D"]
+
+[node name="ShellSurface" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.0138165, 0.00228034, 0.00785315)
+mesh = SubResource("QuadMesh_6qc42")
+script = ExtResource("2_rrrh8")
+color = Color(0, 1, 0, 1)
+shellCount = 512
+indexWidthMapping = SubResource("Curve_wrn0e")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.60811, 0.793852, 0, -0.793852, 0.60811, 0, 0.767044, 0.594274)
+script = ExtResource("3_0n4xj")
+speed = 100.0
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.88685, -0.0938022, -0.452437, 0.462058, 0.180039, 0.868383, 0, -0.979177, 0.203009, -3.03849, 4.40619, 0.758906)

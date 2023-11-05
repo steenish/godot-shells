@@ -1,0 +1,12 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://bu7paxgupspem"]
+
+[ext_resource type="Shader" path="res://Shells.gdshader" id="1_ek4fu"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_ek4fu")
+shader_parameter/_Density = 100
+shader_parameter/_Color = Vector3(0, 1, 0)
+shader_parameter/_Threshold = 0.2
+shader_parameter/_Width = 0.5
+shader_parameter/_Height = null
