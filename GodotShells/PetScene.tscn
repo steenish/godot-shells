@@ -1,13 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://q0ih77wrdaro"]
+[gd_scene load_steps=5 format=3 uid="uid://q0ih77wrdaro"]
 
 [ext_resource type="ArrayMesh" uid="uid://btsnfhoowdfsd" path="res://BunnyClean.res" id="1_uk5xp"]
 [ext_resource type="Script" path="res://ShellSurface.gd" id="2_rrrh8"]
 [ext_resource type="Script" path="res://CameraController.gd" id="3_0n4xj"]
-[ext_resource type="Material" uid="uid://dcshto1m0f18q" path="res://BunnySkin.tres" id="3_ucv45"]
-
-[sub_resource type="Curve" id="Curve_wrn0e"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.695876, 0.305263), -2.18797, -2.18797, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
-point_count = 3
+[ext_resource type="Material" uid="uid://bw32cvw6gwi7" path="res://BunnySkin.tres" id="3_jkw4y"]
 
 [node name="Node3D" type="Node3D"]
 
@@ -15,15 +11,14 @@ point_count = 3
 mesh = ExtResource("1_uk5xp")
 script = ExtResource("2_rrrh8")
 density = 500
-color = Color(0.803922, 0.560784, 0, 1)
+noiseMax = 0.1
+maxHeight = 0.01
 shellCount = 512
-totalHeight = 0.01
-maxWidth = 0.3
-indexWidthMapping = SubResource("Curve_wrn0e")
 
-[node name="Skin" type="MeshInstance3D" parent="BunnyHair"]
-material_override = ExtResource("3_ucv45")
+[node name="BunnySkin" type="MeshInstance3D" parent="BunnyHair"]
+material_override = ExtResource("3_jkw4y")
 mesh = ExtResource("1_uk5xp")
+skeleton = NodePath("../..")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.60811, 0.793852, 0, -0.793852, 0.60811, 0, 0.767044, 0.594274)

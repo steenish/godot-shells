@@ -1,10 +1,13 @@
 shader_type spatial;
 
 uniform uint _Density;
-uniform vec3 _Color;
-instance uniform float _Threshold;
-instance uniform float _Width;
-instance uniform float _Height;
+uniform float _NoiseMax;
+uniform float _MaxHeight;
+uniform sampler2D _LengthTexture;
+uniform sampler2D _ColorTexture : source_color;
+instance uniform float _NormalizedHeight;
+
+varying float _shellHeight;
 
 float hash(uint n) {
 	// integer hash copied from Hugo Elias
@@ -14,31 +17,24 @@ float hash(uint n) {
 }
 
 void vertex() {
-	VERTEX += NORMAL * _Height;
+	_shellHeight = _MaxHeight * _NormalizedHeight;
+	VERTEX += NORMAL * _shellHeight;
 }
 
 void fragment() {
+	float sampledLength = texture(_LengthTexture, UV).x;
+	float wantedLength = mix(0.0, _MaxHeight, sampledLength);
 	vec2 uvScaled = float(_Density) * UV.xy;
 	vec2 uvLocal = fract(uvScaled) * 2.0 - vec2(1);
-	float distanceFromCenter = length(uvLocal);
 	uvec2 uvInt = uvec2(uint(uvScaled.x), uint(uvScaled.y));
 	float randomValue = hash(uvInt.x + 100U * uvInt.y + 1000U);
-	if(randomValue < _Threshold || distanceFromCenter > _Width) {
+	float actualLength = wantedLength - randomValue * _NoiseMax * _MaxHeight;
+	float threshold = _NormalizedHeight;
+	float width = mix(1.0, 0.0, _shellHeight / actualLength);
+	float distanceFromCenter = length(uvLocal);
+	if(_shellHeight > actualLength || distanceFromCenter > width) {
 		discard;
 	}
-	vec3 colorValue = mix(vec3(0.0), _Color, step(_Threshold, randomValue));
-	ALBEDO = vec3(colorValue);
+	vec3 colorValue = texture(_ColorTexture, UV).rgb;
+	ALBEDO = colorValue;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-

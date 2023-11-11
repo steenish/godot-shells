@@ -1,4 +1,6 @@
-[gd_resource type="StandardMaterial3D" format=3 uid="uid://dcshto1m0f18q"]
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://bw32cvw6gwi7"]
+
+[ext_resource type="Texture2D" uid="uid://cfulw70b6p7vu" path="res://FullColor.png" id="1_kn02i"]
 
 [resource]
-albedo_color = Color(0.803922, 0.560784, 0, 1)
+albedo_texture = ExtResource("1_kn02i")

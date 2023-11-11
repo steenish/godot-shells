@@ -1,9 +1,14 @@
-[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://e6f13oqdrnch"]
+[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://e6f13oqdrnch"]
 
 [ext_resource type="Shader" path="res://Shells.gdshader" id="1_m53sa"]
+[ext_resource type="Texture2D" uid="uid://cfulw70b6p7vu" path="res://FullColor.png" id="2_a4c82"]
+[ext_resource type="Texture2D" uid="uid://bcu8wul530x4" path="res://FurLength.png" id="2_gsrmg"]
 
 [resource]
 render_priority = 0
 shader = ExtResource("1_m53sa")
 shader_parameter/_Density = 100
-shader_parameter/_Color = Vector3(0, 1, 0)
+shader_parameter/_NoiseMax = null
+shader_parameter/_MaxHeight = null
+shader_parameter/_LengthTexture = ExtResource("2_gsrmg")
+shader_parameter/_ColorTexture = ExtResource("2_a4c82")

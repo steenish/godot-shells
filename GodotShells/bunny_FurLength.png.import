@@ -2,17 +2,18 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bcu8wul530x4"
-path.s3tc="res://.godot/imported/FurLength.png-4051bd91be71b8f6abbc069f894320a5.s3tc.ctex"
+uid="uid://dyjc5oveppro1"
+path.s3tc="res://.godot/imported/bunny_FurLength.png-e6a2ac4f989fa7e1b8337dffc94c2aac.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={}
 
 [deps]
 
-source_file="res://FurLength.png"
-dest_files=["res://.godot/imported/FurLength.png-4051bd91be71b8f6abbc069f894320a5.s3tc.ctex"]
+source_file="res://bunny_FurLength.png"
+dest_files=["res://.godot/imported/bunny_FurLength.png-e6a2ac4f989fa7e1b8337dffc94c2aac.s3tc.ctex"]
 
 [params]
 
